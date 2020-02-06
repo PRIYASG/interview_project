@@ -1,0 +1,12 @@
+version: "3.7"
+
+  db:
+    image: postgres:11.2-alpine
+    environment:
+      POSTGRES_USER: demo_user
+      POSTGRES_PASSWORD: demo_user
+      POSTGRES_DB: demo_db
+    volumes:
+      - ./sql_scripts/:/docker-entrypoint-initdb.d
+    networks:
+      - network-backend
